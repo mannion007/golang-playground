@@ -64,11 +64,9 @@ var developers = map[string]developer{
 }
 
 func main() {
-
 	fmt.Println("Employees who work in development on the 5th floor", developersOnTheFifthFloor())
 	fmt.Println("Employees who Charlie manages", developersCharlieManages())
 	fmt.Println("Employees who work in product", employeesWhoWorkInProduct())
-
 }
 
 func developersCharlieManages() []string {
