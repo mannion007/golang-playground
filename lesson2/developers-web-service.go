@@ -9,77 +9,77 @@ import (
 
 type Reponse struct {
 	Code   int    `json:"code"`
-	Result string `json:"result"`
+	Result interface{} `json:"result"`
 }
 
 type developer struct {
-	name       string
-	manager    string
-	department string
-	team       string
-	floor      int
+	Name       string
+	Manager    string
+	Department string
+	Team       string
+	Floor      int
 }
 
 var developers = map[int]developer{
 	1: developer{
-		name:       "James",
-		manager:    "Rudolf",
-		department: "Development",
-		team:       "DAS",
-		floor:      5,
+		Name:       "James",
+		Manager:    "Rudolf",
+		Department: "Development",
+		Team:       "DAS",
+		Floor:      5,
 	},
 	2: developer{
-		name:       "Kamil",
-		manager:    "Rudolf",
-		department: "Development",
-		team:       "DAS",
-		floor:      5,
+		Name:       "Kamil",
+		Manager:    "Rudolf",
+		Department: "Development",
+		Team:       "DAS",
+		Floor:      5,
 	},
 	3: developer{
-		name:       "Chris",
-		manager:    "Charlie",
-		department: "Development",
-		team:       "Product",
-		floor:      5,
+		Name:       "Chris",
+		Manager:    "Charlie",
+		Department: "Development",
+		Team:       "Product",
+		Floor:      5,
 	},
 	4: developer{
-		name:       "Andrew",
-		manager:    "Charlie",
-		department: "Development",
-		team:       "Product",
-		floor:      5,
+		Name:       "Andrew",
+		Manager:    "Charlie",
+		Department: "Development",
+		Team:       "Product",
+		Floor:      5,
 	},
 	5: developer{
-		name:       "Gijs",
-		manager:    "Frazer",
-		department: "Project Management",
-		team:       "Product",
-		floor:      5,
+		Name:       "Gijs",
+		Manager:    "Frazer",
+		Department: "Project Management",
+		Team:       "Product",
+		Floor:      5,
 	},
 	6: developer{
-		name:       "Sorin",
-		manager:    "Edina",
-		department: "Development",
-		team:       "SmartShop",
-		floor:      5,
+		Name:       "Sorin",
+		Manager:    "Edina",
+		Department: "Development",
+		Team:       "SmartShop",
+		Floor:      5,
 	},
 	7: developer{
-		name:       "Bomany",
-		manager:    "Simon",
-		department: "Devops",
-		team:       "SmartShop",
-		floor:      5,
+		Name:       "Bomany",
+		Manager:    "Simon",
+		Department: "Devops",
+		Team:       "SmartShop",
+		Floor:      5,
 	},
 	8: developer{
-		name:       "Peter",
-		manager:    "David",
-		department: "Development",
-		team:       "Web",
-		floor:      4,
+		Name:       "Peter",
+		Manager:    "David",
+		Department: "Development",
+		Team:       "Web",
+		Floor:      4,
 	},
 }
 
-func sendResponse(w http.ResponseWriter, code int, result string) {
+func sendResponse(w http.ResponseWriter, code int, result interface{}) {
 	response := Reponse{
 		Code:   code,
 		Result: result,
@@ -97,8 +97,7 @@ func sendResponse(w http.ResponseWriter, code int, result string) {
 
 func hello(w http.ResponseWriter, r *http.Request) {
 	code := 200
-	result, _ := json.Marshal(developers)
-	sendResponse(w, code, string(result))
+	sendResponse(w, code, developers)
 }
 
 func main() {
