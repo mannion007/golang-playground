@@ -97,13 +97,8 @@ func sendResponse(w http.ResponseWriter, code int, result string) {
 
 func hello(w http.ResponseWriter, r *http.Request) {
 	code := 200
-	//result := "Name cannot be empty"
-
-	theResult, _ := json.Marshal(developers)
-
-	//fmt.Println(string(theResult))
-
-	sendResponse(w, code, string(theResult))
+	result, _ := json.Marshal(developers)
+	sendResponse(w, code, string(result))
 }
 
 func main() {
